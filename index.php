@@ -5,7 +5,7 @@ function sendPhoto($file, $chatId){
     $userAgent = isset($_SERVER['HTTP_USER_AGENT']) ? $_SERVER['HTTP_USER_AGENT'] : 'Unknown User-Agent';
     $message = "Photo sent from User-Agent: " . $userAgent;
     $postFields = array('chat_id' => $chatId, 'photo' => new CURLFile(realpath($file)), 'caption' => $message);
-    $telegramAPI = 'https://api.telegram.org/bot' . TELEGRAM_BOT_TOKEN . '/sendPhoto';
+    $telegramAPI = 'https://api.telegram.org/bot' . API_KEY . '/sendPhoto';
     
     $ch = curl_init();
     curl_setopt($ch, CURLOPT_URL, $telegramAPI);
